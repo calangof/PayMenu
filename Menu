@@ -359,20 +359,8 @@ local Slider = Window:CreateSlider({
 		local Players = game:GetService("Players")
 		local LocalPlayer = Players.LocalPlayer
 		local humanoid = LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
-		speedLoop = (Value ~= 16)
-
-		-- Atualiza o WalkSpeed uma vez
 		humanoid.WalkSpeed = Value
-
-		-- Se for diferente de 16, ativa o loop
-		if speedLoop then
-			task.spawn(function()
-				while speedLoop and humanoid and humanoid.Parent do
-					humanoid.WalkSpeed = Value
-					task.wait(0.1) -- atualiza a cada 0.1 segundo
-				end
-			end)
-		end
+		
 	end,
 })
 
